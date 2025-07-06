@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Página de Api Bootcamp{% endblock %}
+
+{% block contenido %}
+    <section class="container">
+        <div class="row">
+            <h1 class="display-2">Hola Estudiantes de {{ bootcamp }} </h1>
+            <h2 class="display-3">{{ titulo }}</h2>
+            <hr>
+            <h3 class="display-4">Autor: {{ autor }}</h3>
+        </div>
+    </section>
+{% endblock %}
