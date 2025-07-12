@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Predicción Fandom Fores Regresión{% endblock %}
+
+{% block contenido %}
+    <section class="container">
+        <div class="row">
+            <form method="post" class="mt-5 row">
+                {% csrf_token %}
+                <h2 class="text-center">{{ rf_titulo }}</h2>
+                <div class="col-md-6">
+                    <label for="">Indice de criminalidad</label>
+                    {{ formulario.CRIM }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Proporción de Terreno</label>
+                    {{ formulario.ZN }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Industrias </label>
+                    {{ formulario.INDUS }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Rio Charles</label>
+                    {{ formulario.CHAS }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Concentración de oxido nitroso</label>
+                    {{ formulario.NOX }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Porcentaje de Cuartos (rooms)</label>
+                    {{ formulario.RM }}
+                </div>
+                <div class="col-md-6">
+                    <label for="">Edad del edificio</label>
+                    {{ formulario.AGE }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Distancia a centro de empleo</label>
+                    {{ formulario.DIS }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Indice de acceso a Carrileras</label>
+                    {{ formulario.RAD }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Promedio impuesto anual</label>
+                    {{ formulario.TAX }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Promedio Escuelas</label>
+                    {{ formulario.PTRATIO }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Proporcion de Niches en la ciudad</label>
+                    {{ formulario.B }}
+                </div>
+                <div class="col-md-6">
+                    <label for="Indice de criminalidad">Media de ocupación</label>
+                    {{ formulario.LSTAT }}
+                </div>
+                <div class="col-md-12 text-center mt-3">
+                    <button type="submit" class="btn btn-outline-primary">Predecir</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            {% if resultado %}
+                <div class="alert alert-success mt-3">
+                    <strong>
+                        Resultado de la predicción: {{ resultado }}
+                    </strong>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
